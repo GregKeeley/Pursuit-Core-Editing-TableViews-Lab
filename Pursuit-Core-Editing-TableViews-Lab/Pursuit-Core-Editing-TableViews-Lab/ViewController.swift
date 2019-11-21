@@ -16,9 +16,15 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
-    var groceries = [GrocerieList]() {
+    var groceries = [GroceryList]() {
         didSet {
             tableView.reloadData()
+        }
+    }
+    var isEditingTableView = false {
+        didSet {
+            tableView.isEditing = isEditingTableView
+            navigationItem.leftBarButtonItem?.title = isEditingTableView ? "Done" : "Edit"
         }
     }
     
@@ -29,7 +35,12 @@ class ViewController: UIViewController {
     }
     
     func loadData() {
+        groceries = GroceryList.groceries
     }
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        isEditingTableView.toggle()
+    }
+    
 
 }
 
@@ -48,5 +59,9 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let groceryToMove = groceries[sourceIndexPath.row]
+        groceries.remove(at: sourceIndexPath.row)
+        groceries.insert(groceryToMove, at: destinationIndexPath.row)
+    }
 }

@@ -82,7 +82,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="JHJ-Mx-6YJ"/>
+                    <navigationItem key="navigationItem" id="JHJ-Mx-6YJ">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="9Lx-QN-MyF">
+                            <connections>
+                                <action selector="editButtonPressed:" destination="BYZ-38-t0r" id="KA0-HG-4B8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="groceryTextField" destination="z2s-fD-e1h" id="OLf-Jh-pT5"/>
                         <outlet property="submitGroceryButton" destination="H0Q-aY-ySW" id="vlR-Kh-CFr"/>

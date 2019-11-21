@@ -8,10 +8,12 @@
 
 import Foundation
 
-struct GrocerieList {
+struct GroceryList {
     var name = String()
-    var cost = Int()
-    var purchased = Bool()
+//    var cost = Int()
+//    var purchased = Bool()
     
-    var groceries = ["Bread", "Eggs", "Milk"]
+    static var groceries = [
+        GroceryList(name: "Bread"), GroceryList(name: "Eggs"), GroceryList(name: "Milk")
+    ]
 }
